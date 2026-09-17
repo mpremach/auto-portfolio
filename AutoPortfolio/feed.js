@@ -5,18 +5,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     const lightboxImg = document.getElementById('lightbox-img');
     const closeBtn = document.querySelector('.close-btn');
 
-    // 1. Your Sanity Database Coordinates
+    // Sanity Database Configuration
     const PROJECT_ID = 'cr4s4h2h';
     const DATASET = 'production';
     
-    // This query asks Sanity: "Find every 'carPhoto' and give me the title and the image URL"
+    // Ask sanity for all the car photos, and return the title and image URL
     const QUERY = encodeURIComponent('*[_type == "carPhoto"]{title, "imageUrl": image.asset->url}');
     const API_URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
     let sanityImages = [];
     let currentIndex = 0;
 
-    // 2. Fetch the photos from Sanity
+    // Fetch the photos from Sanity
     try {
         const response = await fetch(API_URL);
         const data = await response.json();
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Error fetching from Sanity:", error);
     }
 
-    // 3. The Grid Builder (Now pulling from your Sanity array)
+    // Grid Builder 
     function loadImages(count = 4) {
         if (sanityImages.length === 0) return;
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // 4. The Scroll Detector
+    // Scroll Detector
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && sanityImages.length > 0) {
             setTimeout(() => {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     observer.observe(trigger);
 
-    // 5. Lightbox Closing Logic
+    // Lightbox Closing Logic
     const closeLightbox = () => {
         lightbox.classList.remove('active');
         setTimeout(() => { lightboxImg.src = ''; }, 300);

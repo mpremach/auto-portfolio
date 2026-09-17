@@ -13,7 +13,7 @@ export default {
       title: 'Car Image',
       type: 'image',
       options: {
-        hotspot: true, // This lets him crop the photo in the dashboard!
+        hotspot: true, 
       },
     },
   ],

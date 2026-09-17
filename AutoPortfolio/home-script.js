@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     img.src = imgUrl;
                     img.className = 'gallery-img';
                     
-                    // Attach your lightbox logic to the new images
+                    
                     img.addEventListener('click', (e) => {
                         const lightbox = document.getElementById('lightbox');
                         const lightboxImg = document.getElementById('lightbox-img');
