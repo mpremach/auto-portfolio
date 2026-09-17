@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const PROJECT_ID = 'cr4s4h2h';
+    const PROJECT_ID = '';
     const DATASET = 'production';
 
     const QUERY = encodeURIComponent(`*[_type == "homePage"][0]{
