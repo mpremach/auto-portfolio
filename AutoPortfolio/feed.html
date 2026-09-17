@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Shots - Feed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>THE FEED</h1>
+        <p>Everything Cars.</p>
+        <nav class="main-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="feed.html" class="nav-link active">Feed</a>
+        </nav>
+    </header>
+
+    <main class="portfolio-container">
+        <section id="infinite-grid" class="individual-section">
+            </section>
+
+        <div id="scroll-trigger" class="loading-trigger">
+            <div class="spinner"></div>
+            <p>Loading more shots...</p>
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Full resolution view">
+    </div>
+
+    <script src="feed.js"></script>
+</body>
+</html>

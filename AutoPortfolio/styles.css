@@ -1,0 +1,216 @@
+/* Core Styling & Dark Theme */
+:root {
+    --bg-color: #0d0d0d;
+    --text-color: #f1f1f1;
+    --accent-color: #222;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    padding: 4rem 1rem 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+header p {
+    color: #888;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.portfolio-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* SECTION 1: Cover Layout (3 columns) */
+.cover-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cover-item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--accent-color);
+}
+
+/* SECTION 2: Middle Featured Section */
+.featured-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 50px;
+    align-items: center; /* Centers the text vertically next to the photo */
+}
+
+.featured-text h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.featured-text p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.featured-image {
+    aspect-ratio: 4 / 3; /* Clean aspect ratio for the featured shot */
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--accent-color);
+}
+
+/* SECTION 3: Individual Grid Layout (Auto-fitting squares) */
+.individual-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--accent-color);
+}
+
+/* Image Hover Effects */
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+/* Visual Divider */
+.divider {
+    height: 1px;
+    background: #262626;
+    margin: 60px 0;
+}
+
+/* LIGHTBOX STYLING */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cover-section {
+        grid-template-columns: 1fr; /* Stacks top rows on small screens */
+    }
+    
+    .featured-section {
+        grid-template-columns: 1fr; /* Stacks text on top of image on mobile */
+        gap: 25px;
+    }
+}
+
+/* Navigation Menu Styling */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.nav-link {
+    color: #666;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-color);
+    border-bottom: 1px solid var(--text-color);
+}
+
+/* Loading Trigger & Spinner for Infinite Feed */
+.loading-trigger {
+    text-align: center;
+    padding: 3rem 0;
+    color: #555;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #222;
+    border-top: 3px solid #888;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
