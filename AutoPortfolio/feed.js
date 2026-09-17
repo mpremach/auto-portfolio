@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const closeBtn = document.querySelector('.close-btn');
 
     // Sanity Database Configuration
-    const PROJECT_ID = 'cr4s4h2h';
+    const PROJECT_ID = '';
     const DATASET = 'production';
     
     // Ask sanity for all the car photos, and return the title and image URL
